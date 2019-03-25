@@ -1,6 +1,8 @@
 package rocks.zipcode.io.quiz3.generics;
 
+import java.util.Arrays;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 /**
  * @author leon on 09/12/2018.
@@ -29,7 +31,6 @@ public class ArrayUtility<SomeType> {
             if(getNumberOfOccurrences(array[i]) % 2 == 0){
                 return array[i];
             }
-
         }
 
         return null;
@@ -47,6 +48,9 @@ public class ArrayUtility<SomeType> {
     }
 
     public SomeType[] filter(Function<SomeType, Boolean> predicate) {
-        return null;
+
+        Stream stream = Arrays.stream(array).map(predicate);
+
+        return (SomeType[]) stream.toArray();
     }
 }

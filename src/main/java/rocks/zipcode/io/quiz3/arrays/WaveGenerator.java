@@ -8,18 +8,14 @@ import java.util.List;
  */
 public class WaveGenerator {
     public static String[] wave(String str) {
-        String ans = "";
+
         List<String> answer = new ArrayList<>();
         str = str.toLowerCase();
 
-
-       // for(int i = 0; i < str.length(); i++){
             for(int j = 0; j < getLengthNotIncludingSpecial(str); j++){
                 answer.add(capitalizeOneLetter(str,j));
             }
-      //  }
 
-      // String ans = capitalizeOneLetter(str.toLowerCase(),0);
         return answer.toArray(new String[answer.size()]);
     }
 
@@ -44,7 +40,6 @@ public class WaveGenerator {
                     ans += string.substring(i,i+1);
                 }
             }
-
 
             return ans;
         }
