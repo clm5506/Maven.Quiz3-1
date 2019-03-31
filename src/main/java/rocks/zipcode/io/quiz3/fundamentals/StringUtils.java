@@ -36,11 +36,11 @@ public class StringUtils {
 
         for(int c = 0; c < length; c++){
             for(int i = 1; i <= length-c; i++   ){
-                ans += string.substring(c, c+i) + " ";
+                ans += string.substring(c, c+i) + ",";
             }
         }
 
-        String[] newAnswer = ans.split(" ");
+        String[] newAnswer = ans.split(",");
 
         String[] finalAnswer = removeDuplicates(newAnswer);
 
