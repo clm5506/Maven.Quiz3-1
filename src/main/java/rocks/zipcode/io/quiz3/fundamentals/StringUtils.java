@@ -1,7 +1,7 @@
 package rocks.zipcode.io.quiz3.fundamentals;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author leon on 09/12/2018.
@@ -23,7 +23,8 @@ public class StringUtils {
     }
 
     public static Boolean isCharacterAtIndex(String baseString, Character characterToCheckFor, Integer indexOfString) {
-        baseString = baseString.toLowerCase();
+        baseString = baseString;
+
         char[] charArray = baseString.toCharArray();
 
         return charArray[indexOfString] == characterToCheckFor;
@@ -34,7 +35,6 @@ public class StringUtils {
         int length = string.length();
 
         for(int c = 0; c < length; c++){
-
             for(int i = 1; i <= length-c; i++   ){
                 ans += string.substring(c, c+i) + " ";
             }
@@ -43,30 +43,20 @@ public class StringUtils {
         String[] newAnswer = ans.split(" ");
 
         String[] finalAnswer = removeDuplicates(newAnswer);
+
         return finalAnswer;
     }
 
     public static String[] removeDuplicates(String[] strArr ){
-        String ans = strArr[0];
-        String previousValue = strArr[0];
-        for(int i = 1; i < strArr.length; i++) {
-            if(previousValue.equals(strArr[i])) {
-                previousValue = strArr[i];
-            }else {
-                previousValue = strArr[i];
-                ans = ans + " " + strArr[i];
-            }
-        }
-        String[] arrayAns = ans.split(" ");
 
-
-        return arrayAns;
+        List<String> removedDupes = Arrays.stream(strArr).distinct().collect(Collectors.toList());
+        return removedDupes.toArray(new String[0]);
 
     }
 
     public static Integer getNumberOfSubStrings(String input){
         String[] substrings = getAllSubStrings(input);
 
-        return substrings.length-1;
+        return substrings.length;
     }
 }

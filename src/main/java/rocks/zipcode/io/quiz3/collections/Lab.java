@@ -5,7 +5,7 @@ import java.util.Comparator;
 /**
  * @author leon on 10/12/2018.
  */
-public class Lab implements Comparable<Lab>{
+public class Lab {
 
 
     String nameOfLab;
@@ -39,8 +39,5 @@ public class Lab implements Comparable<Lab>{
     }
 
 
-    @Override
-    public int compareTo(Lab o) {
-        return this.getName().compareTo(o.getName());
-    }
+
 }

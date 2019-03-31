@@ -24,7 +24,7 @@ public class VowelUtils {
                 return i;
             }
         }
-        return null;
+        return -1;
     }
 
 

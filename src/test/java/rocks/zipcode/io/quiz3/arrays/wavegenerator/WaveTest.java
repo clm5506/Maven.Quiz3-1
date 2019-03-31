@@ -56,6 +56,7 @@ public class WaveTest {
                 "A_a_a",
                 "a_A_a",
                 "a_a_A"};
+        System.out.println(input.length());
 
         // when
         String[] actual = WaveGenerator.wave(input);

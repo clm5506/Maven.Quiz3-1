@@ -20,7 +20,7 @@ public class StringFilterTest {
 
         // when
         String[] actual = utility.filter(string -> string.length() > 3);
-
+        System.out.println(actual[0]);
         // then
         TestUtils.assertArrayEquals(expected, actual);
     }

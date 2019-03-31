@@ -1,5 +1,7 @@
 package rocks.zipcode.io.quiz3.arrays;
 
+import rocks.zipcode.io.quiz3.fundamentals.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,36 +14,19 @@ public class WaveGenerator {
         List<String> answer = new ArrayList<>();
         str = str.toLowerCase();
 
-            for(int j = 0; j < getLengthNotIncludingSpecial(str); j++){
-                answer.add(capitalizeOneLetter(str,j));
+            for(int j = 0; j < str.length(); j++){
+                if(Character.isLetter(str.charAt(j))){
+                    answer.add(StringUtils.capitalizeNthCharacter(str, j));
+                }
+
             }
 
         return answer.toArray(new String[answer.size()]);
     }
 
 
-    public static int getLengthNotIncludingSpecial(String str){
-        int counter = 0;
-        for(char c : str.toCharArray()){
-            if(Character.isLetter(c)){
-                counter++;
-            }
-        }
-        return counter;
-    }
 
-        public static String capitalizeOneLetter (String string,int index){
-            String ans = "";
-            for (int i = 0; i < string.length(); i++) {
-                if (i == index) {
-                    ans += string.substring(index, index+1).toUpperCase();
-                }
-                 else {
-                    ans += string.substring(i,i+1);
-                }
-            }
 
-            return ans;
-        }
+
 
 }

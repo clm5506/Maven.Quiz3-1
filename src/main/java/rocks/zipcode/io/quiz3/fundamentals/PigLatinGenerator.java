@@ -16,7 +16,7 @@ public class PigLatinGenerator {
                 stringArray[i] = stringArray[i] + "way";
             } else {
                 Integer index = VowelUtils.getIndexOfFirstVowel(stringArray[i]);
-                if(index != null) {
+                if(index != -1) {
                     stringArray[i] = stringArray[i].substring(index) + stringArray[i].substring(0, index) + "ay";
                 } else {
                     stringArray[i] = stringArray[i] + "ay";

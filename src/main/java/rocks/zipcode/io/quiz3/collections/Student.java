@@ -11,10 +11,7 @@ public class Student  {
     List<Lab> labs;
 
     public Student() {
-       // List<Lab> newLab = new ArrayList<Lab>();
-
         this(null);
-
     }
 
     public Student(List<Lab> labs) {
@@ -26,7 +23,6 @@ public class Student  {
     }
 
     public Lab getLab(String labName) {
-
         for( Lab l : labs){
             if(l.getName() == labName){
                 return l;
@@ -57,6 +53,8 @@ public class Student  {
     @Override
     public String toString() {
         String ans = "";
+        LabComparator lc = new LabComparator();
+        labs.sort(lc);
 
         for(Lab l : labs){
             ans += l.getName() + " > " + getLabStatus(l.getName()) + "\n";
